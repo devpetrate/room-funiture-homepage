@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/logo.png" />
     <title>Room homepage</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
@@ -66,11 +66,17 @@
         gap: 3rem;
         /* background-color: bisque; */
       }
+      .ham {
+        display: none;
+      }
       nav ul {
         list-style: none;
         display: flex;
         gap: 1rem;
         color: var(--White);
+      }
+      ul img {
+        display: none;
       }
       ul li {
         cursor: pointer;
@@ -162,6 +168,72 @@
           font-size: 15px;
         }
       }
+      @media (max-width: 450px) {
+        body {
+          overflow-y: scroll;
+          height: max-content;
+        }
+        .top {
+          height: 120vh;
+          flex-direction: column;
+        }
+        header {
+          padding-top: 4rem;
+          width: 100%;
+        }
+        .center {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+        }
+        nav ul {
+          display: none;
+          background-color: var(--White);
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          height: 6rem;
+          width: 100%;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 1.5rem;
+          color: var(--Black);
+          font-weight: 700;
+          font-size: 15px;
+        }
+        ul img {
+          display: inline;
+          margin-right: 2rem;
+        }
+        .ham {
+          display: inline;
+          justify-self: start;
+        }
+        .down {
+          height: max-content;
+          flex-direction: column;
+        }
+        .rnlbtn {
+          position: absolute;
+          left: unset;
+          bottom: unset;
+          top: -52.34px;
+          right: 0px;
+        }
+        .topright {
+          padding: 0rem 2rem;
+        }
+        .down div:first-child,
+        .down div:last-child {
+          width: 100%;
+        }
+        .downmid {
+          padding: 2rem 2rem 1rem;
+        }
+        /* .topleft {
+          height: 80vh;
+        } */
+      }
     </style>
   </head>
   <body>
@@ -170,9 +242,13 @@
         <div class="topleft">
           <img class="first" src="./images/desktop-image-hero-1.jpg" alt="" />
           <header>
-            <img src="./images/logo.svg" alt="" />
+            <img class="ham" src="./images//icon-hamburger.svg" alt="" />
+            <div class="center">
+              <img src="./images/logo.svg" alt="" />
+            </div>
             <nav>
               <ul>
+                <img src="./images/icon-close.svg" alt="" />
                 <li>h<span class="underline">om</span>e</li>
                 <li>s<span class="underline">ho</span>p</li>
                 <li>a<span class="underline">bou</span>t</li>
