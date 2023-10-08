@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <title>Room homepage</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+      :root {
+        --DarkGray: rgb(161, 161, 161);
+        --Black: hsl(0, 0%, 0%);
+        --White: hsl(0, 0%, 100%);
+        --VeryDarkGray: hsl(0, 0%, 27%);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      *::-webkit-scrollbar {
+        width: 8px;
+        background-color: var(--DarkGray);
+        border-radius: 10px;
+      }
+      *::-webkit-scrollbar-thumb {
+        background-color: var(--VeryDarkGray);
+        border-radius: 10px;
+      }
+      body {
+        height: 100vh;
+        font-family: "League Spartan", sans-serif;
+        overflow: hidden;
+        /* background-color: brown; */
+      }
+      .top,
+      .down,
+      nav ul {
+        display: flex;
+      }
+      .top {
+        height: 70vh;
+      }
+      .down {
+        height: 30vh;
+      }
+      .topleft {
+        flex: 0.6;
+        /* background-color: blue; */
+        /* background-image: url(./images/desktop-image-hero-1.jpg);
+        background-size: contain;
+        background-repeat: no-repeat; */
+      }
+      .first {
+        width: 100%;
+        height: 100%;
+        /* z-index: -1; */
+      }
+      header {
+        position: absolute;
+        top: 0px;
+        padding: 2rem;
+        display: flex;
+        gap: 3rem;
+        /* background-color: bisque; */
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        color: var(--White);
+      }
+      ul li {
+        cursor: pointer;
+      }
+      ul li:hover .underline {
+        text-decoration: 1.5px underline;
+        text-underline-offset: 0.5rem;
+      }
+      .topright {
+        flex: 0.4;
+        background-color: var(--White);
+        padding: 4rem 3rem 6rem 3rem;
+        position: relative;
+        display: grid;
+        align-content: center;
+      }
+      .topright p,
+      .downmid p {
+        color: var(--DarkGray);
+        font-size: 15px;
+        padding: 1rem 0;
+        line-height: 120%;
+      }
+      .topright h4 {
+        color: var(--DarkGray);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 7px;
+        font-weight: 400;
+        cursor: pointer;
+      }
+      .rnlbtn {
+        background-color: var(--Black);
+        display: flex;
+        justify-content: space-around;
+        width: min-content;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+      }
+      .rnlbtn div {
+        padding: 1rem 1.3rem;
+        width: max-content;
+        &:hover {
+          background-color: var(--VeryDarkGray);
+        }
+      }
+      /* .rnlbtn div:first-child{
+        background-color: blue;
+      } */
+      /* .down * {
+        flex: 1;
+      } */
+      .down div:first-child,
+      .down div:last-child {
+        width: 90%;
+      }
+      .downmid {
+        background-color: var(--White);
+        padding: 3rem 2rem;
+        display: grid;
+        align-content: center;
+      }
+      .downmid h3 {
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-size: 12px;
+        font-weight: bolder;
+      }
+
+      @media (min-width: 1200px) {
+        header {
+          padding: 4rem;
+          gap: 4rem;
+        }
+        nav ul {
+          gap: 2rem;
+        }
+        .topright h1 {
+          font-size: 45px;
+        }
+        .topright {
+          padding: 5rem 4rem 7rem 4rem;
+        }
+        .downmid {
+          padding: 4rem 3rem;
+        }
+        .downmid h3 {
+          font-size: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">
+        <div class="topleft">
+          <img class="first" src="./images/desktop-image-hero-1.jpg" alt="" />
+          <header>
+            <img src="./images/logo.svg" alt="" />
+            <nav>
+              <ul>
+                <li>h<span class="underline">om</span>e</li>
+                <li>s<span class="underline">ho</span>p</li>
+                <li>a<span class="underline">bou</span>t</li>
+                <li>c<span class="underline">ontac</span>t</li>
+              </ul>
+            </nav>
+          </header>
+        </div>
+        <div class="topright">
+          <h1>Discover innovative ways to decorate</h1>
+          <p>
+            We provide unmatched quality, comfort, and style for property owners across the country.
+            Our experts combine form and function in bringing your vision to life. Create a room in
+            your own style with our collection and make your property a reflection of you and what
+            you love.
+          </p>
+          <h4>Shop now <img src="./images/icon-arrow.svg" alt="" width="30px" /></h4>
+          <div class="rnlbtn">
+            <div>
+              <img src="./images/icon-angle-left.svg" alt="" width="10px" />
+            </div>
+            <div><img src="./images/icon-angle-right.svg" alt="" width="10px" /></div>
+          </div>
+        </div>
+      </div>
+      <div class="down">
+        <div class="downleft">
+          <img class="first" src="./images/image-about-dark.jpg" alt="" />
+        </div>
+        <div class="downmid">
+          <h3>About our furniture</h3>
+          <p>
+            Our multifunctional collection blends design and function to suit your individual taste.
+            Make each room unique, or pick a cohesive theme that best express your interests and
+            what inspires you. Find the furniture pieces you need, from traditional to contemporary
+            styles or anything in between. Product specialists are available to help you create your
+            dream space.
+          </p>
+        </div>
+        <div class="downright">
+          <img class="first" src="./images/image-about-light.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
