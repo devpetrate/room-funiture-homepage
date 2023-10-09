@@ -171,7 +171,7 @@
       @media (max-width: 450px) {
         body {
           overflow-y: scroll;
-          height: max-content;
+          height: min-content;
         }
         .top {
           height: 120vh;
@@ -217,7 +217,7 @@
           position: absolute;
           left: unset;
           bottom: unset;
-          top: -52.34px;
+          top: -53px;
           right: 0px;
         }
         .topright {
@@ -230,6 +230,15 @@
         .downmid {
           padding: 2rem 2rem 1rem;
         }
+        .hero1 {
+          content: url(./images/mobile-image-hero-1.jpg);
+        }
+        .hero2 {
+          content: url(./images/mobile-image-hero-2.jpg);
+        }
+        .hero3 {
+          content: url(./images/mobile-image-hero-3.jpg);
+        }
         /* .topleft {
           height: 80vh;
         } */
@@ -240,7 +249,9 @@
     <div class="container">
       <div class="top">
         <div class="topleft">
-          <img class="first" src="./images/desktop-image-hero-1.jpg" alt="" />
+          <img id="backg" class="first hero1" src="./images/desktop-image-hero-1.jpg" alt="" />
+          <img id="backg" class="first hero2" src="./images/desktop-image-hero-2.jpg" alt="" />
+          <img id="backg" class="first hero3" src="./images/desktop-image-hero-3.jpg" alt="" />
           <header>
             <img class="ham" src="./images//icon-hamburger.svg" alt="" />
             <div class="center">
@@ -258,19 +269,41 @@
           </header>
         </div>
         <div class="topright">
-          <h1>Discover innovative ways to decorate</h1>
-          <p>
-            We provide unmatched quality, comfort, and style for property owners across the country.
-            Our experts combine form and function in bringing your vision to life. Create a room in
-            your own style with our collection and make your property a reflection of you and what
-            you love.
-          </p>
+          <div class="items">
+            <h1>Discover innovative ways to decorate</h1>
+            <p>
+              We provide unmatched quality, comfort, and style for property owners across the
+              country. Our experts combine form and function in bringing your vision to life. Create
+              a room in your own style with our collection and make your property a reflection of
+              you and what you love.
+            </p>
+          </div>
+          <div class="items">
+            <h1>We are available all across the globe</h1>
+            <p>
+              With stores all over the world, it's easy for you to find furniture for your home or
+              place of business. Locally, we’re in most major cities throughout the country. Find
+              the branch nearest you using our store locator. Any questions? Don't hesitate to
+              contact us today.
+            </p>
+          </div>
+          <div class="items">
+            <h1>Manufactured with the best materials</h1>
+            <p>
+              Our modern furniture store provide a high level of quality. Our company has invested
+              in advanced technology to ensure that every product is made as perfect and as
+              consistent as possible. With three decades of experience in this industry, we
+              understand what customers want for their home and office.
+            </p>
+          </div>
           <h4>Shop now <img src="./images/icon-arrow.svg" alt="" width="30px" /></h4>
           <div class="rnlbtn">
-            <div>
+            <div id="left">
               <img src="./images/icon-angle-left.svg" alt="" width="10px" />
             </div>
-            <div><img src="./images/icon-angle-right.svg" alt="" width="10px" /></div>
+            <div id="right">
+              <img src="./images/icon-angle-right.svg" alt="" width="10px" />
+            </div>
           </div>
         </div>
       </div>
@@ -293,5 +326,68 @@
         </div>
       </div>
     </div>
+    <script>
+      const ham = document.querySelector(".ham");
+      const cancel = document.querySelector("ul img");
+      const sidebar = document.querySelector("nav ul");
+
+      function openSidebar() {
+        sidebar.style.display = "flex";
+      }
+
+      function closeSidebar() {
+        sidebar.style.display = "none";
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        cancel.addEventListener("click", closeSidebar);
+        ham.addEventListener("click", openSidebar);
+      });
+
+      const leftBtn = document.querySelector("#left");
+      const rightBtn = document.querySelector("#right");
+      const items = document.querySelectorAll(".items");
+      const background = document.querySelectorAll("#backg");
+
+      let currentItemIndex = 0;
+
+      function showItem(index) {
+        items.forEach((item, i) => {
+          if (i === index) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+
+      function showBack(index) {
+        background.forEach((back, i) => {
+          if (i === index) {
+            back.style.display = "block";
+          } else {
+            back.style.display = "none";
+          }
+        });
+      }
+
+      leftBtn.addEventListener("click", () => {
+        currentItemIndex = (currentItemIndex - 1 + items.length) % items.length;
+        currentItemIndex = (currentItemIndex - 1 + background.length) % background.length;
+        showItem(currentItemIndex);
+        showBack(currentItemIndex);
+      });
+
+      rightBtn.addEventListener("click", () => {
+        currentItemIndex = (currentItemIndex + 1) % items.length;
+        currentItemIndex = (currentItemIndex + 1) % background.length;
+        showItem(currentItemIndex);
+        showBack(currentItemIndex);
+      });
+
+      // Show the initial item
+      showItem(currentItemIndex);
+      showBack(currentItemIndex);
+    </script>
   </body>
 </html>
